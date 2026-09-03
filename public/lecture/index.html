@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>講義モード｜第1回 Codexの教科書</title>
+  <meta name="description" content="第1回Codex勉強会の講師用ダッシュボード。スライド、実演プロンプト、教材、予備画像、進行メモをまとめています。">
+  <meta property="og:title" content="講義モード｜Codexの教科書"><meta property="og:description" content="講師がこのページを開くだけで授業を始められる進行画面です。"><meta property="og:type" content="website"><meta property="og:locale" content="ja_JP"><meta property="og:image" content="/assets/capybara-sticker-set.png">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/styles.css"><script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header"><div class="header-inner"><a class="brand" href="/"><span class="brand-mark" aria-hidden="true">C</span><span>Codexの教科書<br>Web版</span></a><button class="menu-button" type="button" aria-expanded="false" aria-controls="site-navigation" data-menu-button>メニュー</button><nav class="site-nav" id="site-navigation" aria-label="メインナビゲーション" data-site-nav><ul><li><a href="/">ホーム</a></li><li><a href="/lesson-1/">第1回教材</a></li><li><a href="/lecture/" aria-current="page">講義モード</a></li><li><a href="/archive/">アーカイブ</a></li><li><a href="/prompt-maker/">プロンプトメーカー</a></li><li><a href="/library/">スキル図書館</a></li></ul></nav></div></header>
+  <main id="main">
+    <header class="page-hero"><div class="container"><ol class="breadcrumb" aria-label="パンくずリスト"><li><a href="/">ホーム</a></li><li>講義モード</li></ol><p class="eyebrow">Teacher Console · Lesson 01</p><h1>講義モード</h1><p class="lead">スライドを中心に、授業で使うものを1ページへ集めました。上から順に進めれば、45〜60分の講義になります。</p></div></header>
+
+    <section class="section section-mint"><div class="container lecture-dashboard">
+      <div class="slide-preview"><div><p class="eyebrow">Today’s Workshop</p><h2>背景透過ステッカーを<br>5枚つくろう</h2><p>固定する → 1枚つくる → 少しだけ変える → 透明を確かめる → スキルに残す</p><div class="button-row"><a class="button" href="/slides/" target="_blank" rel="noopener">スライドを別タブで開く</a><a class="button button-secondary" href="/slides/?fullscreen=1" target="_blank" rel="noopener">全画面用に開く</a></div></div></div>
+      <nav class="lecture-tools" aria-label="講義ツール"><a class="tool-link" href="/prompt-maker/" target="_blank" rel="noopener">✦ プロンプトメーカー</a><a class="tool-link" href="#demo-prompt">⌘ 実演用プロンプト</a><a class="tool-link" href="/lesson-1/" target="_blank" rel="noopener">☞ 第1回教材</a><a class="tool-link" href="#backup-images">▧ 失敗時の予備画像</a><a class="tool-link" href="#run-sheet">☷ 講義の進行メモ</a></nav>
+    </div></section>
+
+    <section class="section" id="run-sheet"><div class="narrow"><p class="eyebrow">Run of Show</p><h2>講義の進行メモ</h2><ol class="run-sheet"><li><time>0〜5分</time>ゴール紹介。「今日は5枚＋再利用できる手順を持ち帰ります」</li><li><time>5〜12分</time>固定条件と変更条件の違いを説明</li><li><time>12〜25分</time>講師実演：1枚目を生成して観察</li><li><time>25〜38分</time>参加者実践：1枚ずつポーズを変更</li><li><time>38〜46分</time>背景透過・ファイル名・余白を確認</li><li><time>46〜55分</time>成功手順をSKILL.mdへまとめる</li><li><time>55〜60分</time>共有・質問・次回案内</li></ol><div class="tip">生成待ちの時間は、隣の人と固定条件を見せ合う時間にします。待ち時間を「観察」に変えると講義が止まりません。</div></div></section>
+
+    <section class="section section-orange" id="demo-prompt"><div class="narrow"><p class="eyebrow">Live Demo</p><h2>実演用プロンプト</h2><p>1枚目の生成に使い、成功後はポーズの1行だけを差し替えます。</p><div class="prompt-box" id="lecture-prompt">背景透過ステッカーを1枚生成してください。
+
+主役: 小さなカピバラ
+画材: 色鉛筆と少しワックス感のあるクレヨン
+雰囲気: 1960年代ヨーロッパのレトロ絵本
+配色: クリーム、焼けたオレンジ、くすみミント、濃い茶色
+顔・体型: クリーム色の口元、小さな丸い耳、濃い茶色の楕円の鼻、短くて丈夫な体型
+ポーズ: 正面を向き、片手を振って、やさしく笑う
+固定条件: キャラメル色の毛、焼けたオレンジ色のネッカチーフ、同じ顔・体型・画風・色
+
+実際のアルファチャンネルを持つ完全な透明背景。全身を入れる。文字・ロゴ・透かし・余計な小物は入れない。</div><button class="button button-secondary" type="button" data-copy-target="#lecture-prompt">実演用プロンプトをコピー</button></div></section>
+
+    <section class="section" id="backup-images"><div class="container"><p class="eyebrow">Plan B</p><h2>失敗時の予備画像</h2><p>生成が混み合う、背景が透過できない、キャラクターが変わる場合は、このセットを使って確認工程へ進みます。</p><div class="sticker-set"><figure class="sticker-card"><div class="sticker-crop pos-1" role="img" aria-label="手を振る予備カピバラ画像"></div><figcaption>01 あいさつ</figcaption></figure><figure class="sticker-card"><div class="sticker-crop pos-2" role="img" aria-label="メモをする予備カピバラ画像"></div><figcaption>02 集中</figcaption></figure><figure class="sticker-card"><div class="sticker-crop pos-3" role="img" aria-label="跳んで喜ぶ予備カピバラ画像"></div><figcaption>03 よろこび</figcaption></figure><figure class="sticker-card"><div class="sticker-crop pos-4" role="img" aria-label="驚く予備カピバラ画像"></div><figcaption>04 びっくり</figcaption></figure><figure class="sticker-card"><div class="sticker-crop pos-5" role="img" aria-label="親指を立てる予備カピバラ画像"></div><figcaption>05 できた</figcaption></figure></div><div class="note"><strong>切り替えの合図：</strong>生成を2回修正しても進まない場合は、予備画像で透過確認とSKILL.md化へ進みます。授業のゴールは「生成を待つこと」ではありません。</div></div></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><div class="footer-note"><div class="brand"><span class="brand-mark" aria-hidden="true">C</span><span>Codexの教科書 Web版</span></div><p>講義前にスライドと予備画像を一度開いておくと安心です。</p></div><ul class="footer-links"><li><a href="/slides/">スライド</a></li><li><a href="/lesson-1/">第1回教材</a></li><li><a href="/prompt-maker/">プロンプトメーカー</a></li></ul></div></footer>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>プロンプトメーカー｜Codexの教科書 Web版</title>
+  <meta name="description" content="8つの項目を埋めて、背景透過ステッカーの画像生成プロンプトをかんたんに組み立てられます。">
+  <meta property="og:title" content="画像生成プロンプトメーカー｜Codexの教科書"><meta property="og:description" content="主役、画材、配色、ポーズ、固定条件などから画像生成用の指示文をつくります。"><meta property="og:type" content="website"><meta property="og:locale" content="ja_JP"><meta property="og:image" content="/assets/capybara-sticker-set.png">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/styles.css"><script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header"><div class="header-inner"><a class="brand" href="/"><span class="brand-mark" aria-hidden="true">C</span><span>Codexの教科書<br>Web版</span></a><button class="menu-button" type="button" aria-expanded="false" aria-controls="site-navigation" data-menu-button>メニュー</button><nav class="site-nav" id="site-navigation" aria-label="メインナビゲーション" data-site-nav><ul><li><a href="/">ホーム</a></li><li><a href="/lesson-1/">第1回教材</a></li><li><a href="/lecture/">講義モード</a></li><li><a href="/archive/">アーカイブ</a></li><li><a href="/prompt-maker/" aria-current="page">プロンプトメーカー</a></li><li><a href="/library/">スキル図書館</a></li></ul></nav></div></header>
+  <main id="main">
+    <header class="page-hero"><div class="container"><ol class="breadcrumb" aria-label="パンくずリスト"><li><a href="/">ホーム</a></li><li>プロンプトメーカー</li></ol><p class="eyebrow">Prompt Maker</p><h1>ことばを選んで、<br>プロンプトをつくろう。</h1><p class="lead">全部埋めなくても大丈夫。入力するたびに、下のプロンプトが自動で育ちます。</p></div></header>
+    <section class="section section-mint"><div class="container">
+      <form class="form-panel" data-prompt-form>
+        <div class="form-grid">
+          <div class="field"><label for="subject">主役</label><input id="subject" name="subject" value="小さなカピバラ" placeholder="例：白いねこ" autocomplete="off"><span class="hint">誰・何を描く？</span></div>
+          <div class="field"><label for="medium">画材</label><select id="medium" name="medium"><option>色鉛筆と少しワックス感のあるクレヨン</option><option>水彩と細いインク線</option><option>切り紙と紙のテクスチャ</option><option>木版画風</option><option>やわらかなパステル</option></select><span class="hint">絵の手ざわり</span></div>
+          <div class="field"><label for="atmosphere">時代・地域の雰囲気</label><input id="atmosphere" name="atmosphere" value="1960年代ヨーロッパのレトロ絵本" placeholder="例：昭和レトロな児童書" autocomplete="off"></div>
+          <div class="field"><label for="palette">配色</label><input id="palette" name="palette" value="クリーム、焼けたオレンジ、くすみミント、濃い茶色" placeholder="例：青、白、レモン色" autocomplete="off"></div>
+          <div class="field"><label for="features">顔・体型</label><textarea id="features" name="features" placeholder="例：丸い顔、小さな耳、短い手足">クリーム色の口元、小さな丸い耳、濃い茶色の楕円の鼻、短くて丈夫な体型</textarea></div>
+          <div class="field"><label for="pose">ポーズ</label><textarea id="pose" name="pose" placeholder="例：右手を振って笑う">正面を向き、片手を振って、やさしく笑う</textarea></div>
+          <div class="field full"><label for="invariants">固定条件</label><textarea id="invariants" name="invariants" placeholder="毎回絶対に変えない見た目や持ち物">あたたかいキャラメル色の毛、焼けたオレンジ色のネッカチーフ、同じ顔・体型・画風・色</textarea><span class="hint">2枚目以降も変えたくない条件を書きます。</span></div>
+          <div class="field"><label for="count">枚数</label><select id="count" name="count"><option value="1枚（最初の基準画像）">1枚</option><option value="2枚">2枚</option><option value="3枚">3枚</option><option value="5枚" selected>5枚</option></select><span class="hint">複数でも1枚ずつ生成します。</span></div>
+        </div>
+        <div class="button-row"><button class="button" type="submit">プロンプトを整える</button><a class="button button-secondary" href="/lesson-1/#continue">使い方を確認</a></div>
+        <div class="output-panel"><h2>できあがったプロンプト</h2><pre class="prompt-output" tabindex="0" data-prompt-output aria-live="polite"></pre><div class="button-row"><button class="button button-secondary" type="button" data-copy-prompt>プロンプトをコピー</button></div><p class="status" role="status" data-prompt-status></p></div>
+      </form>
+    </div></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><div class="footer-note"><div class="brand"><span class="brand-mark" aria-hidden="true">C</span><span>Codexの教科書 Web版</span></div><p>コピーしたらCodexへ貼り付けて、まず1枚を試しましょう。</p></div><ul class="footer-links"><li><a href="/lesson-1/">第1回教材</a></li><li><a href="/lecture/">講義モード</a></li><li><a href="/library/">スキル図書館</a></li></ul></div></footer>
+</body>
+</html>

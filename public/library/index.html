@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>スキル図書館｜Codexの教科書 Web版</title>
+  <meta name="description" content="Codex勉強会の参加者向けSKILL.mdを、合言葉で安全に閲覧・コピー・ダウンロードできるスキル図書館です。">
+  <meta property="og:title" content="スキル図書館｜Codexの教科書"><meta property="og:description" content="参加者向けの再利用できるSKILL.mdを配布します。"><meta property="og:type" content="website"><meta property="og:locale" content="ja_JP"><meta property="og:image" content="/assets/capybara-sticker-set.png">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/styles.css"><script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header"><div class="header-inner"><a class="brand" href="/"><span class="brand-mark" aria-hidden="true">C</span><span>Codexの教科書<br>Web版</span></a><button class="menu-button" type="button" aria-expanded="false" aria-controls="site-navigation" data-menu-button>メニュー</button><nav class="site-nav" id="site-navigation" aria-label="メインナビゲーション" data-site-nav><ul><li><a href="/">ホーム</a></li><li><a href="/lesson-1/">第1回教材</a></li><li><a href="/lecture/">講義モード</a></li><li><a href="/archive/">アーカイブ</a></li><li><a href="/prompt-maker/">プロンプトメーカー</a></li><li><a href="/library/" aria-current="page">スキル図書館</a></li></ul></nav></div></header>
+  <main id="main" data-library>
+    <header class="page-hero"><div class="container"><ol class="breadcrumb" aria-label="パンくずリスト"><li><a href="/">ホーム</a></li><li>スキル図書館</li></ol><p class="eyebrow">Skill Library</p><h1>成功した手順を、<br>次の「できた」へ。</h1><p class="lead">ここから先は勉強会参加者向けです。講師から案内された合言葉を入力してください。</p></div></header>
+    <section class="section section-mint"><div class="container library-shell">
+      <aside class="lock-card"><div class="lock-icon" aria-hidden="true">⌾</div><h2>保護されています</h2><p>合言葉の確認はサーバー側で行います。入力した合言葉をブラウザへ保存することはありません。</p><ul class="checklist"><li>閲覧</li><li>ワンクリックコピー</li><li>SKILL.mdダウンロード</li></ul></aside>
+      <div class="protected-panel">
+        <div data-login-panel><h2>合言葉を入力</h2><form data-login-form><div class="field"><label for="passphrase">合言葉</label><input id="passphrase" name="passphrase" type="password" required maxlength="256" autocomplete="current-password" spellcheck="false"><span class="hint">大文字・小文字、全角・半角をご確認ください。</span></div><div class="button-row"><button class="button" type="submit">図書館を開く</button></div></form></div>
+        <div data-content-panel hidden><div class="button-row"><button class="button button-secondary" type="button" data-copy-skill>本文をコピー</button><a class="button" href="/api/library/download" download="SKILL.md">SKILL.mdを保存</a><button class="button button-quiet" type="button" data-logout>ログアウト</button></div><h2>第1回：背景透過ステッカー制作スキル</h2><div class="skill-content"><pre data-skill-content tabindex="0"></pre></div></div>
+        <p class="status" role="status" aria-live="polite" data-library-message></p>
+        <noscript><p class="warning">スキル図書館を利用するにはJavaScriptを有効にしてください。</p></noscript>
+      </div>
+    </div></section>
+    <section class="section"><div class="narrow"><h2>安全について</h2><div class="card-grid two"><article class="card"><h3>本文は公開ファイルにありません</h3><p>配布するSKILL.md本文はCloudflareの秘密変数から、認証後にだけ送られます。</p></article><article class="card"><h3>認証Cookieを保護します</h3><p>HttpOnly・Secure・SameSite=Laxを付けた署名済みCookieを使い、12時間で期限切れになります。</p></article></div></div></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><div class="footer-note"><div class="brand"><span class="brand-mark" aria-hidden="true">C</span><span>Codexの教科書 Web版</span></div><p>配布ファイルに合言葉や秘密情報を書き足さないようにしましょう。</p></div><ul class="footer-links"><li><a href="/lesson-1/">第1回教材</a></li><li><a href="/archive/">アーカイブ</a></li><li><a href="/">ホーム</a></li></ul></div></footer>
+</body>
+</html>

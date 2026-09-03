@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>第1回｜背景透過ステッカーを5枚つくる｜Codexの教科書</title>
+  <meta name="description" content="Codexで同じキャラクターの背景透過ステッカーを5枚つくり、成功手順をSKILL.mdにする初心者向け教材です。">
+  <meta property="og:title" content="第1回｜Codexで背景透過ステッカーを5枚つくる"><meta property="og:description" content="固定条件、連続生成、背景透過、SKILL.md化を45〜60分で学びます。"><meta property="og:type" content="article"><meta property="og:locale" content="ja_JP"><meta property="og:image" content="/assets/capybara-sticker-set.png">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/styles.css"><script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header"><div class="header-inner"><a class="brand" href="/"><span class="brand-mark" aria-hidden="true">C</span><span>Codexの教科書<br>Web版</span></a><button class="menu-button" type="button" aria-expanded="false" aria-controls="site-navigation" data-menu-button>メニュー</button><nav class="site-nav" id="site-navigation" aria-label="メインナビゲーション" data-site-nav><ul><li><a href="/">ホーム</a></li><li><a href="/lesson-1/" aria-current="page">第1回教材</a></li><li><a href="/lecture/">講義モード</a></li><li><a href="/archive/">アーカイブ</a></li><li><a href="/prompt-maker/">プロンプトメーカー</a></li><li><a href="/library/">スキル図書館</a></li></ul></nav></div></header>
+  <main id="main">
+    <header class="page-hero"><div class="container"><ol class="breadcrumb" aria-label="パンくずリスト"><li><a href="/">ホーム</a></li><li>第1回教材</li></ol><p class="eyebrow">Lesson 01 · 45–60 min</p><h1>Codexで背景透過<br>ステッカーを5枚つくる</h1><p class="lead">主役の見た目はそのままに、ポーズと表情だけを変える。画像生成の基本を、ひとつずつ手を動かして学びます。</p><div class="button-row"><a class="button" href="/prompt-maker/">プロンプトをつくる</a><button class="button button-secondary" type="button" data-print>教材を印刷</button></div></div></header>
+
+    <section class="section section-mint" aria-label="講座情報"><div class="container"><div class="event-band"><div class="event-cell"><strong>テーマ</strong>背景透過ステッカーを5枚つくる</div><div class="event-cell"><strong>日時</strong><time datetime="2026-09-04T14:00:00+09:00">2026.9.4<br>14:00</time></div><div class="event-cell"><strong>対象</strong>はじめての方</div><div class="event-cell"><strong>ゴール</strong>5枚＋手順書</div></div></div></section>
+
+    <div class="section container lesson-layout">
+      <aside class="toc" aria-label="目次"><h2>この回の目次</h2><ol><li><a href="#prepare">準備する</a></li><li><a href="#fix">固定条件を決める</a></li><li><a href="#first">1枚目をつくる</a></li><li><a href="#continue">5枚へ増やす</a></li><li><a href="#transparent">背景透過を確認</a></li><li><a href="#skill">SKILL.mdにする</a></li></ol></aside>
+      <article class="prose">
+        <section id="prepare"><p class="eyebrow">Step 0</p><h2>準備する</h2><p>Codexを開き、画像を保存する作業フォルダを用意します。今回は完成画像を5枚と、成功手順をまとめた1つのファイルをつくります。</p><ul class="checklist"><li>Codexが使える状態になっている</li><li>保存先フォルダを決めている</li><li>つくりたい主役をひとつ決めている</li></ul><div class="tip">最初は要素を増やしすぎないのがコツです。「カピバラ」「白いねこ」のように主役をひとつに絞りましょう。</div></section>
+
+        <section id="fix"><p class="eyebrow">Step 1</p><h2>キャラクターの固定条件を決める</h2><p>毎回同じキャラクターに見えるための条件を、見た目・色・形・持ち物に分けて書き出します。</p><div class="card-grid two"><div class="card"><h3>変えないもの</h3><ul><li>毛の色と模様</li><li>目・鼻・耳の形</li><li>体型と頭身</li><li>服やアクセサリー</li><li>画材と描線</li></ul></div><div class="card"><h3>変えてよいもの</h3><ul><li>ポーズ</li><li>表情</li><li>手足の向き</li><li>視線</li></ul></div></div><p>たとえば、次のように具体的にします。</p><div class="prompt-box" id="fixed-example">固定条件: あたたかいキャラメル色の毛、クリーム色の口元、小さな丸い耳、濃い茶色の楕円の鼻、短くて丈夫な体型、焼けたオレンジ色のネッカチーフ。1960年代ヨーロッパの絵本のような色鉛筆画。</div><button class="button button-small button-secondary" type="button" data-copy-target="#fixed-example">固定条件をコピー</button></section>
+
+        <section id="first"><p class="eyebrow">Step 2</p><h2>1枚目を基準画像としてつくる</h2><p>最初の1枚は、以後のすべての基準です。まずは正面向きで、全身がよく見える簡単なポーズを頼みます。</p><ol class="steps"><li><strong>主役と固定条件を書く</strong><br>曖昧な「かわいい」だけで終わらず、色や形まで伝えます。</li><li><strong>ポーズをひとつ指定する</strong><br>1枚目は「正面を向いて手を振る」など、形の確認がしやすいものにします。</li><li><strong>透明背景を明記する</strong><br>「実際のアルファチャンネルを持つ完全な透明背景」と伝えます。</li><li><strong>できあがりを観察する</strong><br>固定条件と違う箇所があれば、次へ進む前に直します。</li></ol><div class="warning">背景が白く見えても、白色で塗られている場合があります。保存したPNGを市松模様や色のある背景に重ねて確認しましょう。</div></section>
+
+        <section id="continue"><p class="eyebrow">Step 3</p><h2>1枚ずつ連続生成する</h2><p>基準画像ができたら、同じ会話の中で次の1枚を頼みます。一度に5枚をまとめて頼むより、変化を確認しながら進めるほうが安定します。</p><div class="prompt-box" id="continue-example">このキャラクターの固定条件をすべて維持してください。変更するのはポーズと表情だけです。次は「小さな鉛筆を持って集中してメモする」ポーズを1枚生成してください。背景は完全な透明。文字、ロゴ、透かし、余計な小物は入れないでください。</div><button class="button button-small button-secondary" type="button" data-copy-target="#continue-example">実演用プロンプトをコピー</button><h3>5枚のおすすめ構成</h3><div class="sticker-set"><figure class="sticker-card"><div class="sticker-crop pos-1" role="img" aria-label="手を振るカピバラ"></div><figcaption>1. あいさつ</figcaption></figure><figure class="sticker-card"><div class="sticker-crop pos-2" role="img" aria-label="メモをするカピバラ"></div><figcaption>2. 集中</figcaption></figure><figure class="sticker-card"><div class="sticker-crop pos-3" role="img" aria-label="喜んで跳ぶカピバラ"></div><figcaption>3. よろこび</figcaption></figure><figure class="sticker-card"><div class="sticker-crop pos-4" role="img" aria-label="驚いて考えるカピバラ"></div><figcaption>4. びっくり</figcaption></figure><figure class="sticker-card"><div class="sticker-crop pos-5" role="img" aria-label="親指を立てるカピバラ"></div><figcaption>5. できた</figcaption></figure></div></section>
+
+        <section id="transparent"><p class="eyebrow">Step 4</p><h2>背景透過を確認して保存する</h2><ul class="checklist"><li>ファイル形式がPNGになっている</li><li>輪郭の外側に白や色が残っていない</li><li>半透明の毛先が不自然に欠けていない</li><li>5枚の大きさと余白が揃っている</li><li>分かりやすい連番で保存した</li></ul><div class="note"><strong>ファイル名の例</strong><br><code>capybara-01-wave.png</code>、<code>capybara-02-write.png</code>、<code>capybara-03-jump.png</code></div></section>
+
+        <section id="skill"><p class="eyebrow">Step 5</p><h2>成功手順をSKILL.mdにする</h2><p>最後にCodexへ、今回うまくいった条件と順番を再利用できるスキルにしてもらいます。失敗した指示ではなく、成功した最短手順を残すのがポイントです。</p><div class="prompt-box" id="skill-example">今回の成功した生成手順を、別のキャラクターにも再利用できるCodexスキルとしてSKILL.mdにまとめてください。固定条件の定義、1枚ずつ生成する順番、変更してよい項目、背景透過の確認、失敗時の修正方法を含めてください。特定のキャラクター名や秘密情報は含めないでください。</div><button class="button button-small button-secondary" type="button" data-copy-target="#skill-example">SKILL.md化の指示をコピー</button><div class="button-row"><a class="button" href="/library/">スキル図書館へ</a><a class="button button-secondary" href="/archive/">アーカイブを見る</a></div></section>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><div class="footer-note"><div class="brand"><span class="brand-mark" aria-hidden="true">C</span><span>Codexの教科書 Web版</span></div><p>小さく試して、楽しく身につける。</p></div><ul class="footer-links"><li><a href="/">ホーム</a></li><li><a href="/lecture/">講義モード</a></li><li><a href="/prompt-maker/">プロンプトメーカー</a></li></ul></div></footer>
+</body>
+</html>

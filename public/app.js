@@ -174,13 +174,19 @@ if (deck) {
   const slides = [...deck.querySelectorAll("[data-slide]")];
   const current = document.querySelector("[data-slide-current]");
   const total = document.querySelector("[data-slide-total]");
+  const phase = document.querySelector("[data-slide-phase]");
+  const progress = document.querySelector("[data-slide-progress]");
   let index = 0;
   total.textContent = String(slides.length);
+  progress.max = slides.length;
   const show = (next) => {
     index = (next + slides.length) % slides.length;
     slides.forEach((slide, slideIndex) => slide.classList.toggle("active", slideIndex === index));
     current.textContent = String(index + 1);
+    phase.textContent = slides[index].dataset.phase || "";
+    progress.value = index + 1;
     document.title = `${index + 1}/${slides.length}｜講義スライド｜Codexの教科書`;
+    window.scrollTo(0, 0);
   };
   document.querySelector("[data-slide-prev]").addEventListener("click", () => show(index - 1));
   document.querySelector("[data-slide-next]").addEventListener("click", () => show(index + 1));

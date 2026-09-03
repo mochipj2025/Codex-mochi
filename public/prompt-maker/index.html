@@ -2,33 +2,61 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>プロンプトメーカー｜Codexの教科書 Web版</title>
-  <meta name="description" content="8つの項目を埋めて、背景透過ステッカーの画像生成プロンプトをかんたんに組み立てられます。">
-  <meta property="og:title" content="画像生成プロンプトメーカー｜Codexの教科書"><meta property="og:description" content="主役、画材、配色、ポーズ、固定条件などから画像生成用の指示文をつくります。"><meta property="og:type" content="website"><meta property="og:locale" content="ja_JP"><meta property="og:image" content="/assets/capybara-sticker-set.png">
+  <title>1分プロンプトメーカー｜Codexの教科書 Web版</title>
+  <meta name="description" content="言葉を考えなくても大丈夫。主役、絵の雰囲気、5枚の動きを選ぶだけで、背景透過ステッカー用プロンプトが1分で完成します。">
+  <meta property="og:title" content="1分プロンプトメーカー｜Codexの教科書"><meta property="og:description" content="3つ選んでコピーするだけ。画像生成用の詳しい指示文を自動でつくります。"><meta property="og:type" content="website"><meta property="og:locale" content="ja_JP"><meta property="og:image" content="/assets/capybara-sticker-set.png">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/styles.css"><script src="/app.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">本文へ移動</a>
   <header class="site-header"><div class="header-inner"><a class="brand" href="/"><span class="brand-mark" aria-hidden="true">C</span><span>Codexの教科書<br>Web版</span></a><button class="menu-button" type="button" aria-expanded="false" aria-controls="site-navigation" data-menu-button>メニュー</button><nav class="site-nav" id="site-navigation" aria-label="メインナビゲーション" data-site-nav><ul><li><a href="/">ホーム</a></li><li><a href="/lesson-1/">第1回教材</a></li><li><a href="/lecture/">講義モード</a></li><li><a href="/archive/">アーカイブ</a></li><li><a href="/prompt-maker/" aria-current="page">プロンプトメーカー</a></li><li><a href="/library/">スキル図書館</a></li></ul></nav></div></header>
   <main id="main">
-    <header class="page-hero"><div class="container"><ol class="breadcrumb" aria-label="パンくずリスト"><li><a href="/">ホーム</a></li><li>プロンプトメーカー</li></ol><p class="eyebrow">Prompt Maker</p><h1>ことばを選んで、<br>プロンプトをつくろう。</h1><p class="lead">全部埋めなくても大丈夫。入力するたびに、下のプロンプトが自動で育ちます。</p></div></header>
+    <header class="page-hero prompt-hero"><div class="container"><ol class="breadcrumb" aria-label="パンくずリスト"><li><a href="/">ホーム</a></li><li>1分プロンプトメーカー</li></ol><p class="eyebrow">One-minute Prompt Maker</p><h1>言葉を考えなくても、<br><span class="accent">1分で完成。</span></h1><p class="lead">好きなものを3つ選んで、できたプロンプトをコピーするだけ。迷ったら「全部おまかせ」で大丈夫です。</p><div class="minute-guide" aria-label="使い方"><span><strong>1</strong> 3つ選ぶ</span><span aria-hidden="true">→</span><span><strong>2</strong> コピー</span><span aria-hidden="true">→</span><span><strong>3</strong> Codexに貼る</span></div></div></header>
+
     <section class="section section-mint"><div class="container">
-      <form class="form-panel" data-prompt-form>
-        <div class="form-grid">
-          <div class="field"><label for="subject">主役</label><input id="subject" name="subject" value="小さなカピバラ" placeholder="例：白いねこ" autocomplete="off"><span class="hint">誰・何を描く？</span></div>
-          <div class="field"><label for="medium">画材</label><select id="medium" name="medium"><option>色鉛筆と少しワックス感のあるクレヨン</option><option>水彩と細いインク線</option><option>切り紙と紙のテクスチャ</option><option>木版画風</option><option>やわらかなパステル</option></select><span class="hint">絵の手ざわり</span></div>
-          <div class="field"><label for="atmosphere">時代・地域の雰囲気</label><input id="atmosphere" name="atmosphere" value="1960年代ヨーロッパのレトロ絵本" placeholder="例：昭和レトロな児童書" autocomplete="off"></div>
-          <div class="field"><label for="palette">配色</label><input id="palette" name="palette" value="クリーム、焼けたオレンジ、くすみミント、濃い茶色" placeholder="例：青、白、レモン色" autocomplete="off"></div>
-          <div class="field"><label for="features">顔・体型</label><textarea id="features" name="features" placeholder="例：丸い顔、小さな耳、短い手足">クリーム色の口元、小さな丸い耳、濃い茶色の楕円の鼻、短くて丈夫な体型</textarea></div>
-          <div class="field"><label for="pose">ポーズ</label><textarea id="pose" name="pose" placeholder="例：右手を振って笑う">正面を向き、片手を振って、やさしく笑う</textarea></div>
-          <div class="field full"><label for="invariants">固定条件</label><textarea id="invariants" name="invariants" placeholder="毎回絶対に変えない見た目や持ち物">あたたかいキャラメル色の毛、焼けたオレンジ色のネッカチーフ、同じ顔・体型・画風・色</textarea><span class="hint">2枚目以降も変えたくない条件を書きます。</span></div>
-          <div class="field"><label for="count">枚数</label><select id="count" name="count"><option value="1枚（最初の基準画像）">1枚</option><option value="2枚">2枚</option><option value="3枚">3枚</option><option value="5枚" selected>5枚</option></select><span class="hint">複数でも1枚ずつ生成します。</span></div>
-        </div>
-        <div class="button-row"><button class="button" type="submit">プロンプトを整える</button><a class="button button-secondary" href="/lesson-1/#continue">使い方を確認</a></div>
-        <div class="output-panel"><h2>できあがったプロンプト</h2><pre class="prompt-output" tabindex="0" data-prompt-output aria-live="polite"></pre><div class="button-row"><button class="button button-secondary" type="button" data-copy-prompt>プロンプトをコピー</button></div><p class="status" role="status" data-prompt-status></p></div>
+      <form class="form-panel quick-maker" data-prompt-form>
+        <div class="quick-actions"><div><p class="eyebrow">迷ったらこちら</p><h2>まずは、おまかせでもOK。</h2></div><button class="button button-secondary" type="button" data-randomize>🎲 全部おまかせ</button></div>
+
+        <fieldset class="choice-section"><legend><span class="choice-step">1</span> 主役を選ぶ</legend><p class="choice-help">かわいいと思う子をひとつ。</p><div class="choice-grid choice-grid-six">
+          <label class="choice-card"><input type="radio" name="subjectPreset" value="capybara" checked><span class="choice-emoji" aria-hidden="true">🦫</span><strong>カピバラ</strong></label>
+          <label class="choice-card"><input type="radio" name="subjectPreset" value="cat"><span class="choice-emoji" aria-hidden="true">🐈</span><strong>白いねこ</strong></label>
+          <label class="choice-card"><input type="radio" name="subjectPreset" value="shiba"><span class="choice-emoji" aria-hidden="true">🐕</span><strong>柴犬</strong></label>
+          <label class="choice-card"><input type="radio" name="subjectPreset" value="bird"><span class="choice-emoji" aria-hidden="true">🐦</span><strong>小鳥</strong></label>
+          <label class="choice-card"><input type="radio" name="subjectPreset" value="penguin"><span class="choice-emoji" aria-hidden="true">🐧</span><strong>ペンギン</strong></label>
+          <label class="choice-card"><input type="radio" name="subjectPreset" value="bear"><span class="choice-emoji" aria-hidden="true">🐻</span><strong>こぐま</strong></label>
+        </div></fieldset>
+
+        <fieldset class="choice-section"><legend><span class="choice-step">2</span> 絵の雰囲気を選ぶ</legend><p class="choice-help">見本を見たときの直感でひとつ。</p><div class="choice-grid choice-grid-four">
+          <label class="choice-card style-choice retro-europe"><input type="radio" name="stylePreset" value="retroEurope" checked><span class="swatches" aria-hidden="true"><i></i><i></i><i></i></span><strong>レトロ絵本</strong><small>やさしい色鉛筆</small></label>
+          <label class="choice-card style-choice retro-japan"><input type="radio" name="stylePreset" value="retroJapan"><span class="swatches" aria-hidden="true"><i></i><i></i><i></i></span><strong>昭和レトロ</strong><small>なつかしい水彩</small></label>
+          <label class="choice-card style-choice nordic"><input type="radio" name="stylePreset" value="nordic"><span class="swatches" aria-hidden="true"><i></i><i></i><i></i></span><strong>北欧ポスター</strong><small>すっきりグアッシュ</small></label>
+          <label class="choice-card style-choice candy"><input type="radio" name="stylePreset" value="candy"><span class="swatches" aria-hidden="true"><i></i><i></i><i></i></span><strong>お菓子の缶</strong><small>甘いクレヨン</small></label>
+        </div></fieldset>
+
+        <fieldset class="choice-section"><legend><span class="choice-step">3</span> 5枚の動きを選ぶ</legend><p class="choice-help">使いたい場面に近いセットをひとつ。</p><div class="choice-grid choice-grid-four">
+          <label class="choice-card"><input type="radio" name="posePreset" value="cheer" checked><span class="choice-emoji" aria-hidden="true">🙌</span><strong>元気セット</strong><small>手を振る・ジャンプ・グッ</small></label>
+          <label class="choice-card"><input type="radio" name="posePreset" value="work"><span class="choice-emoji" aria-hidden="true">✏️</span><strong>お仕事セット</strong><small>メモ・考える・完成</small></label>
+          <label class="choice-card"><input type="radio" name="posePreset" value="feelings"><span class="choice-emoji" aria-hidden="true">💭</span><strong>きもちセット</strong><small>笑う・驚く・しょんぼり</small></label>
+          <label class="choice-card"><input type="radio" name="posePreset" value="daily"><span class="choice-emoji" aria-hidden="true">☕</span><strong>毎日セット</strong><small>食べる・歩く・ひと休み</small></label>
+        </div></fieldset>
+
+        <div class="ready-banner"><span class="ready-check" aria-hidden="true">✓</span><div><strong>できました！</strong><p>下のボタンでコピーして、そのままCodexへ貼り付けてください。</p></div><button class="button" type="button" data-copy-prompt>プロンプトをコピー</button></div>
+
+        <details class="fine-tune"><summary>言葉を確認・少し変更する <span>（必要な人だけ）</span></summary><div class="form-grid">
+          <div class="field"><label for="subject">主役</label><select id="subject" name="subject"><option>小さなカピバラ</option><option>ふわふわした白いねこ</option><option>ころんとした赤柴犬</option><option>ミント色の小鳥</option><option>小さなペンギン</option><option>丸顔のこぐま</option></select></div>
+          <div class="field"><label for="medium">画材</label><select id="medium" name="medium"><option>色鉛筆と少しワックス感のあるクレヨン</option><option>透明水彩と細い色鉛筆</option><option>不透明グアッシュと紙のテクスチャ</option><option>やわらかな太線のクレヨン</option></select></div>
+          <div class="field"><label for="atmosphere">時代・地域の雰囲気</label><select id="atmosphere" name="atmosphere"><option>1960年代ヨーロッパのレトロ絵本</option><option>昭和40年代の日本の児童書</option><option>1950年代北欧の子ども向けポスター</option><option>昔のヨーロッパのお菓子缶ラベル</option></select></div>
+          <div class="field"><label for="palette">配色</label><select id="palette" name="palette"><option>クリーム、焼けたオレンジ、くすみミント、濃い茶色</option><option>クリーム、えんじ、からし色、深い青緑</option><option>オフホワイト、くすみ青、山吹色、テラコッタ</option><option>ミルク色、いちごピンク、淡いミント、ココア色</option></select></div>
+          <div class="field"><label for="features">顔・体型</label><select id="features" name="features"><option>クリーム色の口元、小さな丸い耳、濃い茶色の楕円の鼻、短くて丈夫な体型</option><option>丸い顔、三角の小さな耳、ピンクの鼻、短い手足、ふわふわの体型</option><option>丸い眉、三角耳、白い口元、短い足、ころんとした体型</option><option>丸い頭、小さなくちばし、つぶらな目、短い翼、ふっくらした体型</option><option>丸い頭、白いお腹、小さなくちばし、短い翼、ずんぐりした体型</option><option>丸い耳、クリーム色の口元、小さな黒い鼻、短い手足、ふっくらした体型</option></select></div>
+          <div class="field"><label for="pose">ポーズ</label><select id="pose" name="pose"><option>1.手を振る 2.ジャンプして喜ぶ 3.親指を立てる 4.応援する 5.両手を上げて完成を喜ぶ</option><option>1.メモを取る 2.パソコンに向かう 3.腕を組んで考える 4.ひらめく 5.完成して喜ぶ</option><option>1.にっこり笑う 2.びっくりする 3.しょんぼりする 4.照れる 5.安心してほほえむ</option><option>1.おやつを食べる 2.飲み物を持つ 3.元気に歩く 4.座ってひと休み 5.手を振って帰る</option></select></div>
+          <div class="field"><label for="invariants">固定条件</label><select id="invariants" name="invariants"><option>キャラメル色の毛、焼けたオレンジ色のネッカチーフ、同じ顔・体型・画風・色</option><option>真っ白な毛、ミント色の首輪、同じ顔・体型・画風・色</option><option>赤茶色の毛、クリーム色の口元と胸、深い青緑のバンダナ、同じ顔・体型・画風・色</option><option>ミント色の羽、クリーム色のお腹、焼けたオレンジ色の小さなくちばし、同じ顔・体型・画風・色</option><option>濃い茶色の背中、白いお腹、焼けたオレンジ色のマフラー、同じ顔・体型・画風・色</option><option>はちみつ色の毛、クリーム色の口元、えんじ色の蝶ネクタイ、同じ顔・体型・画風・色</option></select></div>
+          <div class="field"><label for="count">枚数</label><select id="count" name="count"><option>1枚</option><option>3枚</option><option selected>5枚</option></select></div>
+        </div></details>
+
+        <div class="output-panel"><h2>できあがったプロンプト</h2><pre class="prompt-output" tabindex="0" data-prompt-output aria-live="polite"></pre><p class="status" role="status" data-prompt-status></p></div>
       </form>
     </div></section>
   </main>
-  <footer class="site-footer"><div class="container footer-inner"><div class="footer-note"><div class="brand"><span class="brand-mark" aria-hidden="true">C</span><span>Codexの教科書 Web版</span></div><p>コピーしたらCodexへ貼り付けて、まず1枚を試しましょう。</p></div><ul class="footer-links"><li><a href="/lesson-1/">第1回教材</a></li><li><a href="/lecture/">講義モード</a></li><li><a href="/library/">スキル図書館</a></li></ul></div></footer>
+  <footer class="site-footer"><div class="container footer-inner"><div class="footer-note"><div class="brand"><span class="brand-mark" aria-hidden="true">C</span><span>Codexの教科書 Web版</span></div><p>3つ選んでコピーしたら、Codexへそのまま貼り付けましょう。</p></div><ul class="footer-links"><li><a href="/lesson-1/">第1回教材</a></li><li><a href="/lecture/">講義モード</a></li><li><a href="/library/">スキル図書館</a></li></ul></div></footer>
 </body>
 </html>

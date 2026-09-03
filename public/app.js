@@ -44,24 +44,73 @@ const promptForm = document.querySelector("[data-prompt-form]");
 if (promptForm) {
   const output = document.querySelector("[data-prompt-output]");
   const status = document.querySelector("[data-prompt-status]");
+  const presets = {
+    subjectPreset: {
+      capybara: { subject: "小さなカピバラ", features: "クリーム色の口元、小さな丸い耳、濃い茶色の楕円の鼻、短くて丈夫な体型", invariants: "キャラメル色の毛、焼けたオレンジ色のネッカチーフ、同じ顔・体型・画風・色" },
+      cat: { subject: "ふわふわした白いねこ", features: "丸い顔、三角の小さな耳、ピンクの鼻、短い手足、ふわふわの体型", invariants: "真っ白な毛、ミント色の首輪、同じ顔・体型・画風・色" },
+      shiba: { subject: "ころんとした赤柴犬", features: "丸い眉、三角耳、白い口元、短い足、ころんとした体型", invariants: "赤茶色の毛、クリーム色の口元と胸、深い青緑のバンダナ、同じ顔・体型・画風・色" },
+      bird: { subject: "ミント色の小鳥", features: "丸い頭、小さなくちばし、つぶらな目、短い翼、ふっくらした体型", invariants: "ミント色の羽、クリーム色のお腹、焼けたオレンジ色の小さなくちばし、同じ顔・体型・画風・色" },
+      penguin: { subject: "小さなペンギン", features: "丸い頭、白いお腹、小さなくちばし、短い翼、ずんぐりした体型", invariants: "濃い茶色の背中、白いお腹、焼けたオレンジ色のマフラー、同じ顔・体型・画風・色" },
+      bear: { subject: "丸顔のこぐま", features: "丸い耳、クリーム色の口元、小さな黒い鼻、短い手足、ふっくらした体型", invariants: "はちみつ色の毛、クリーム色の口元、えんじ色の蝶ネクタイ、同じ顔・体型・画風・色" },
+    },
+    stylePreset: {
+      retroEurope: { medium: "色鉛筆と少しワックス感のあるクレヨン", atmosphere: "1960年代ヨーロッパのレトロ絵本", palette: "クリーム、焼けたオレンジ、くすみミント、濃い茶色" },
+      retroJapan: { medium: "透明水彩と細い色鉛筆", atmosphere: "昭和40年代の日本の児童書", palette: "クリーム、えんじ、からし色、深い青緑" },
+      nordic: { medium: "不透明グアッシュと紙のテクスチャ", atmosphere: "1950年代北欧の子ども向けポスター", palette: "オフホワイト、くすみ青、山吹色、テラコッタ" },
+      candy: { medium: "やわらかな太線のクレヨン", atmosphere: "昔のヨーロッパのお菓子缶ラベル", palette: "ミルク色、いちごピンク、淡いミント、ココア色" },
+    },
+    posePreset: {
+      cheer: { pose: "1.手を振る 2.ジャンプして喜ぶ 3.親指を立てる 4.応援する 5.両手を上げて完成を喜ぶ", count: "5枚" },
+      work: { pose: "1.メモを取る 2.パソコンに向かう 3.腕を組んで考える 4.ひらめく 5.完成して喜ぶ", count: "5枚" },
+      feelings: { pose: "1.にっこり笑う 2.びっくりする 3.しょんぼりする 4.照れる 5.安心してほほえむ", count: "5枚" },
+      daily: { pose: "1.おやつを食べる 2.飲み物を持つ 3.元気に歩く 4.座ってひと休み 5.手を振って帰る", count: "5枚" },
+    },
+  };
   const labels = {
     subject: "主役", medium: "画材", atmosphere: "時代・地域の雰囲気", palette: "配色",
     features: "顔・体型", pose: "ポーズ", invariants: "固定条件", count: "枚数",
   };
+  const applyPreset = (group, key) => {
+    const values = presets[group]?.[key];
+    if (!values) return;
+    for (const [name, value] of Object.entries(values)) {
+      const field = promptForm.elements.namedItem(name);
+      if (field) field.value = value;
+    }
+  };
   const generate = () => {
     const data = new FormData(promptForm);
-    const lines = ["背景透過ステッカーを生成してください。", ""];
+    const lines = ["同じキャラクターで、背景透過ステッカーを生成してください。", ""];
     for (const [key, label] of Object.entries(labels)) {
       const value = String(data.get(key) || "").trim();
       if (value) lines.push(`${label}: ${value}`);
     }
-    lines.push("", "要件:", "- 1枚ずつ連続生成する", "- 主役の同一性と固定条件を厳密に守る", "- 変更するのは指定したポーズと表情だけ", "- 背景は完全な透過（アルファチャンネル）", "- 文字・ロゴ・透かし・余計な小物を入れない");
+    lines.push("", "生成方法:", "- まず1枚目だけを生成し、確認を待つ", "- 確認後、同じ会話で残りを1枚ずつ連続生成する", "- 主役の同一性と固定条件を厳密に守る", "- 各画像で変更するのは指定したポーズと表情だけ", "- 全身を入れ、ステッカーの周囲に十分な余白を取る", "- 背景は完全な透過（実際のアルファチャンネル）", "- 文字・ロゴ・透かし・余計な小物を入れない");
     output.textContent = lines.join("\n");
-    status.textContent = "入力内容からプロンプトを更新しました。";
+    status.textContent = "選んだ内容でプロンプトを自動更新しました。";
   };
-  promptForm.addEventListener("input", generate);
+  for (const group of Object.keys(presets)) {
+    const selected = promptForm.querySelector(`[name="${group}"]:checked`);
+    if (selected) applyPreset(group, selected.value);
+  }
+  promptForm.addEventListener("input", (event) => {
+    const group = event.target.name;
+    if (presets[group]) applyPreset(group, event.target.value);
+    generate();
+  });
   promptForm.addEventListener("submit", (event) => { event.preventDefault(); generate(); output.focus(); });
   document.querySelector("[data-copy-prompt]")?.addEventListener("click", (event) => copyText(output.textContent || "", event.currentTarget));
+  document.querySelector("[data-randomize]")?.addEventListener("click", () => {
+    for (const [group, choices] of Object.entries(presets)) {
+      const keys = Object.keys(choices);
+      const key = keys[crypto.getRandomValues(new Uint32Array(1))[0] % keys.length];
+      const radio = promptForm.querySelector(`[name="${group}"][value="${key}"]`);
+      radio.checked = true;
+      applyPreset(group, key);
+    }
+    generate();
+    status.textContent = "おまかせセットを選びました。もう一度押すと別の組み合わせになります。";
+  });
   generate();
 }
 

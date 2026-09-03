@@ -51,5 +51,13 @@ test("prompt maker is a one-minute selection flow", async () => {
   assert.match(pageSource, /1分でプロンプト/);
   assert.match(makerSource, /RadioGroup/);
   assert.match(makerSource, /5つ選んだら、できあがり/);
+  assert.match(makerSource, /実演プロンプト/);
+  assert.match(makerSource, /TabsTrigger/);
   assert.doesNotMatch(makerSource, /<input/);
+});
+
+test("live mode opens the interactive demonstration prompts", async () => {
+  const liveSource = await readFile(new URL("../app/live/page.tsx", import.meta.url), "utf8");
+
+  assert.match(liveSource, /\/prompt-maker#demo-prompts/);
 });

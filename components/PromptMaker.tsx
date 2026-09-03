@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { CopyButton } from "@/components/CopyButton";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import "./PromptMaker.css";
 
 type Choice = {
@@ -106,6 +107,44 @@ export function PromptMaker() {
     return `${chosen.purpose.prompt}を1枚生成してください。\n\n${chosen.style.prompt}で描く、${chosen.subject.prompt}。${chosen.mood.prompt}。\n\n今回のポーズ：${chosen.pose.prompt}。\n\n顔、体型、頭身、配色、線、画材の質感を統一してください。${format}1回につき1枚だけ生成してください。`;
   }, [chosen, selection.purpose]);
 
+  const demoSteps = useMemo(() => [
+    {
+      id: "01",
+      shortLabel: "基準",
+      title: "1枚目｜基準のキャラクター",
+      note: "最初だけ、選んだ条件をすべて伝えます。生成後の画像を次の実演でも使います。",
+      prompt,
+    },
+    {
+      id: "02",
+      shortLabel: "お菓子",
+      title: "2枚目｜お菓子を持つ",
+      note: "1枚目の画像を添付して、変える部分だけを指示します。",
+      prompt: "直前の画像と同じキャラクターとして作成してください。\n顔、体型、頭身、配色、線、画材の質感、背景の条件を固定します。\n今回の変更点だけ：小さなキャンディーを両手で持ち、うれしそうに微笑む。\n1枚だけ生成してください。",
+    },
+    {
+      id: "03",
+      shortLabel: "あいさつ",
+      title: "3枚目｜手を振る",
+      note: "直前の画像を添付し、同じキャラクターであることを明記します。",
+      prompt: "直前の画像と同じキャラクターとして作成してください。\n顔、体型、頭身、配色、線、画材の質感、背景の条件を固定します。\n今回の変更点だけ：片手を上げて、同じ表情のまま小さく手を振る。\n1枚だけ生成してください。",
+    },
+    {
+      id: "04",
+      shortLabel: "びっくり",
+      title: "4枚目｜びっくりする",
+      note: "顔立ちは変えず、表情と手の位置だけを変えます。",
+      prompt: "直前の画像と同じキャラクターとして作成してください。\n顔、体型、頭身、配色、線、画材の質感、背景の条件を固定します。\n今回の変更点だけ：両手を頬に添え、目を少し開いて驚いている。\n1枚だけ生成してください。",
+    },
+    {
+      id: "05",
+      shortLabel: "おやすみ",
+      title: "5枚目｜おやすみ",
+      note: "最後も直前の画像を基準にし、小物とポーズだけを変更します。",
+      prompt: "直前の画像と同じキャラクターとして作成してください。\n顔、体型、頭身、配色、線、画材の質感、背景の条件を固定します。\n今回の変更点だけ：座って目を閉じ、小さな枕を抱えて眠っている。\n1枚だけ生成してください。",
+    },
+  ], [prompt]);
+
   return (
     <section className="maker-shell" aria-labelledby="maker-title">
       <div className="maker-toolbar">
@@ -163,6 +202,39 @@ export function PromptMaker() {
           <p className="copy-hint">コピーして、そのまま画像生成へ貼り付けられます。</p>
         </aside>
       </div>
+
+      <section className="demo-prompts" id="demo-prompts" aria-labelledby="demo-prompts-title">
+        <header className="demo-prompts-head">
+          <div>
+            <p className="eyebrow">LIVE DEMONSTRATION · 5 PROMPTS</p>
+            <h2 id="demo-prompts-title">実演プロンプト</h2>
+            <p>1枚目を基準にして、2枚目からは変更点だけを伝えます。番号順にコピーして使ってください。</p>
+          </div>
+          <a className="button" href="/downloads/01_実演用の基本プロンプト.md" download>まとめて保存</a>
+        </header>
+
+        <Tabs className="demo-tabs" defaultValue="01">
+          <TabsList className="demo-tabs-list" aria-label="実演する画像を選択">
+            {demoSteps.map((step) => <TabsTrigger key={step.id} value={step.id}><span>{step.id}</span>{step.shortLabel}</TabsTrigger>)}
+          </TabsList>
+          {demoSteps.map((step) => (
+            <TabsContent className="demo-tab-content" key={step.id} value={step.id}>
+              <div className="demo-instruction">
+                <span className="demo-step-badge">STEP {step.id}</span>
+                <h3>{step.title}</h3>
+                <p>{step.note}</p>
+              </div>
+              <div className="demo-code">
+                <div className="code-head">
+                  <span>Codexへ貼り付ける文</span>
+                  <CopyButton text={step.prompt} label={`${step.id}をコピー`} />
+                </div>
+                <pre>{step.prompt}</pre>
+              </div>
+            </TabsContent>
+          ))}
+        </Tabs>
+      </section>
     </section>
   );
 }

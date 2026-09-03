@@ -43,3 +43,13 @@ test("keeps the passphrase and protected skill body out of public source", async
   assert.doesNotMatch(contentSource, /picturebook-character-series/);
   assert.doesNotMatch(skillsPageSource, /\|\|\s*["']もちもち["']/);
 });
+
+test("prompt maker is a one-minute selection flow", async () => {
+  const pageSource = await readFile(new URL("../app/prompt-maker/page.tsx", import.meta.url), "utf8");
+  const makerSource = await readFile(new URL("../components/PromptMaker.tsx", import.meta.url), "utf8");
+
+  assert.match(pageSource, /1分でプロンプト/);
+  assert.match(makerSource, /RadioGroup/);
+  assert.match(makerSource, /5つ選んだら、できあがり/);
+  assert.doesNotMatch(makerSource, /<input/);
+});

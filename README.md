@@ -29,3 +29,17 @@ npm run deploy
 ```
 
 公開URL: <https://codex-mochi.mochilabo.workers.dev>
+
+## コピペ中心の新しい入口（Claude引き継ぎ）
+
+[仕様書](experiences/first-step/docs/SPEC.md) と [Claudeへ渡す依頼文](experiences/first-step/docs/HANDOFF.md) を用意しています。
+
+見本・透過キャラクター3点・サイトアイコンは `experiences/first-step` で管理します。公開トップへの移植は別工程です。
+
+```sh
+npm run guide:dev
+npm run guide:test
+npm run guide:build
+```
+
+[アイコンの見本](experiences/first-step/icons/preview.png)

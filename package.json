@@ -14,7 +14,10 @@
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "drizzle-kit generate",
     "deploy": "npm run build && wrangler deploy",
-    "deploy:dry": "npm run build && wrangler deploy --dry-run --outdir .wrangler/deploy"
+    "deploy:dry": "npm run build && wrangler deploy --dry-run --outdir .wrangler/deploy",
+    "guide:dev": "npm --prefix experiences/first-step run dev",
+    "guide:build": "npm --prefix experiences/first-step run build",
+    "guide:test": "npm --prefix experiences/first-step test"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",

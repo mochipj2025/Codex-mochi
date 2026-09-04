@@ -1,12 +1,14 @@
 import type {Metadata} from "next";
 import Link from "next/link";
 import {SiteHeader} from "@/components/SiteHeader";
+import {LiveArchive} from "@/components/LiveArchive";
 import "./live.css";
 import "./download.css";
 export const metadata:Metadata={title:"第1回 講義モード",description:"第1回Codex勉強会のスライドと実演用ツールを一画面にまとめた講義ページです。",robots:{index:false,follow:false}};
 export default function Page() {
   return <><SiteHeader/><main id="main" className="live-shell">
     <header className="live-head"><div><p className="eyebrow">LESSON 01 · LIVE MODE</p><h1>第1回｜背景透過ステッカーを5枚つくる</h1></div><div className="live-status"><span aria-hidden="true"></span>講義用ページ</div></header>
+    <LiveArchive/>
     <section className="lecture-setup" aria-labelledby="codex-download-title">
       <div>
         <p className="eyebrow">参加前の準備</p>

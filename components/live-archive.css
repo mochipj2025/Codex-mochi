@@ -1,0 +1,22 @@
+.live-archive {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 28px 0;
+  padding: clamp(20px, 3vw, 32px);
+  border: 2px solid var(--line);
+  background: var(--paper);
+  box-shadow: 6px 6px 0 var(--mint);
+}
+.live-archive > div { min-width: 0; }
+.live-archive .eyebrow { margin: 0 0 8px; }
+.live-archive h2 { margin: 0 0 10px; font-size: clamp(22px, 3vw, 30px); line-height: 1.4; }
+.live-archive p:last-child { margin: 0; }
+.live-archive .button { flex-shrink: 0; background: var(--mint); color: white; box-shadow: none; }
+.live-archive .button:hover { background: var(--ink); }
+.live-archive small { display: block; font-size: 12px; font-weight: 500; }
+@media (max-width: 780px) {
+  .live-archive { flex-direction: column; align-items: stretch; gap: 18px; }
+  .live-archive .button { justify-content: center; text-align: center; }
+}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteHeader } from "@/components/SiteHeader";
 import { RecapPrompt } from "@/components/RecapPrompt";
+import { LiveArchive } from "@/components/LiveArchive";
 import { continuousOpening, continuousPrompt, resumePrompt } from "@/lib/lesson-recap";
 import "./recap.css";
 
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return <><SiteHeader/><main id="main" className="recap-shell">
     <header className="recap-head"><p className="eyebrow">LESSON 01 · QUICK RECAP</p><h1>3分で復習。<br/>連続生成の実演まとめ</h1><p>講義スライドとは別の、作業中に見返す短いメモ。<br/>背景透過ステッカーづくりで、覚えておきたいポイントだけ。</p><small>もちもちのCodex勉強会 · 2026年9月4日</small></header>
+    <LiveArchive/>
     <article>
       <section className="recap-key" aria-labelledby="recap-key-title"><span className="recap-number">01</span><div><p className="recap-label">いちばん大事</p><h2 id="recap-key-title">5枚以上の連続生成は、<br/>プロンプトのいちばん最初に。</h2><p>最初に<strong>「合計何枚」「1枚ずつ」「続けてほしい」</strong>を宣言し、その後に絵柄やポーズを書きます。「5枚以上」だけでなく、5枚・8枚など必要な総枚数を決めましょう。</p><RecapPrompt title="先頭に置く指示（5枚の例）" text={continuousOpening}/><p className="recap-note">「1枚ずつ」は出力の単位、「連続で」は進め方。両方を書くのがコツです。枚数を変えるときは、本文中の枚数とポーズの数も揃えます。</p></div></section>
       <div className="recap-points">

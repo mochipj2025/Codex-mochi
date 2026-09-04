@@ -44,3 +44,13 @@ test("lecture links to standalone recap and preserves the lecture slide", async 
   assert.match(html, /<iframe/);
   assert.match(html, /\/prompt-maker#demo-prompts/);
 });
+
+test("live, recap and archive pages link to the Substack recording safely", async () => {
+  for (const path of ["/live", "/recap", "/archive"]) {
+    const html = await render(path);
+    assert.match(html, /LIVEのアーカイブができました/);
+    assert.match(html, /href="https:\/\/mochiketu2026\.substack\.com\/p\/codex\?utm_campaign=post&amp;utm_medium=web" target="_blank" rel="noopener noreferrer"/);
+    assert.match(html, /Substack・別タブで開きます/);
+    assert.equal((html.match(/id="live-archive-title"/g) ?? []).length, 1);
+  }
+});

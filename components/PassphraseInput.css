@@ -1,0 +1,29 @@
+.gate .passphrase-field {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  margin: 18px 0;
+}
+
+.gate .passphrase-field input {
+  flex: 1;
+  min-width: 0;
+  width: 0;
+  margin: 0;
+}
+
+.gate .passphrase-toggle {
+  flex: 0 0 auto;
+  width: auto;
+  min-width: 76px;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 2px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.gate .passphrase-toggle[aria-pressed="true"] {
+  background: var(--yellow);
+}

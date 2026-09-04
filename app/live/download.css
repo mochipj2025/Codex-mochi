@@ -1,0 +1,10 @@
+.lecture-setup{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:24px;padding:20px 24px;border:2px solid var(--line);background:var(--mint)}
+.lecture-setup>div{min-width:0}
+.lecture-setup .eyebrow{margin:0 0 5px}
+.lecture-setup h2{margin:0 0 8px;font-size:clamp(19px,2vw,25px);line-height:1.4}
+.lecture-setup p:last-child{max-width:760px;margin:0;font-size:14px;line-height:1.8}
+.lecture-setup .lecture-download{flex-shrink:0;display:block;text-align:center;background:var(--paper);white-space:normal}
+.lecture-download small{display:block;margin-top:4px;font-size:11px;font-weight:400}
+.lecture-setup .lecture-download:hover{background:var(--yellow)}
+.lecture-setup .lecture-download:focus-visible{outline:3px solid var(--line);outline-offset:4px}
+@media(max-width:780px){.lecture-setup{flex-direction:column;align-items:stretch;gap:16px;padding:18px}.lecture-setup .lecture-download{width:100%}}

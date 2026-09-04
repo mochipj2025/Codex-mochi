@@ -61,3 +61,18 @@ test("live mode opens the interactive demonstration prompts", async () => {
 
   assert.match(liveSource, /\/prompt-maker#demo-prompts/);
 });
+
+test("live mode shows the official app download before the slides", async () => {
+  const { default: worker } = await import("../dist/server/index.js");
+  const response = await worker.fetch(
+    new Request("http://localhost/live", { headers: { accept: "text/html" } }),
+    { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } },
+    { waitUntil() {}, passThroughOnException() {} },
+  );
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /Codexを使うアプリをダウンロード/);
+  assert.match(html, /<a(?=[^>]*href="https:\/\/chatgpt\.com\/download\/")(?=[^>]*target="_blank")(?=[^>]*rel="noopener noreferrer")[^>]*>/);
+  assert.ok(html.indexOf('id="codex-download-title"') < html.indexOf('<iframe'));
+  assert.match(html, /別タブで開きます/);
+});

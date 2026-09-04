@@ -13,7 +13,10 @@ export default function Page() {
         <h2 id="codex-download-title">Codexを使うアプリをダウンロード</h2>
         <p>公式サイトで、お使いのパソコンに合うChatGPTデスクトップアプリを選んでください。インストール後、ChatGPTアカウントでログインしてCodexを開きます。</p>
       </div>
-      <a className="button lecture-download" href="https://chatgpt.com/download/" target="_blank" rel="noopener noreferrer">公式ダウンロードページへ <span aria-hidden="true">↗</span><small>別タブで開きます</small></a>
+      <div className="lecture-setup-actions">
+        <Link className="button lecture-download" href="/setup">初期設定ガイドを見る →<small>フォルダ・プロジェクトの図解＆コピペ</small></Link>
+        <a className="lecture-download-link" href="https://chatgpt.com/download/" target="_blank" rel="noopener noreferrer">公式ダウンロードページへ <span aria-hidden="true">↗</span><small>別タブで開きます</small></a>
+      </div>
     </section>
     <section className="slide-stage" aria-label="講義スライド"><iframe src="/downloads/Codex勉強会_第1回_配布用.pdf#view=FitH&toolbar=1" title="Codex勉強会 第1回の講義スライド"/></section>
     <nav className="lecture-dock" aria-label="講義中に使う資料"><a className="lecture-primary" href="/downloads/Codex勉強会_第1回_配布用.pdf" target="_blank" rel="noreferrer"><small>01</small><strong>スライドを全画面で開く</strong><span>↗</span></a><Link href="/prompt-maker"><small>02</small><strong>プロンプトメーカー</strong><span>→</span></Link><Link href="/prompt-maker#demo-prompts"><small>03</small><strong>実演プロンプト</strong><span>→</span></Link><Link href="/lessons/01"><small>04</small><strong>教材を確認</strong><span>→</span></Link><a href="/downloads/03_失敗時の予備画像5枚.zip"><small>05</small><strong>予備画像</strong><span>↓</span></a></nav>

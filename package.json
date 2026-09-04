@@ -17,7 +17,10 @@
     "deploy:dry": "npm run build && wrangler deploy --dry-run --outdir .wrangler/deploy",
     "guide:dev": "npm --prefix experiences/first-step run dev",
     "guide:build": "npm --prefix experiences/first-step run build",
-    "guide:test": "npm --prefix experiences/first-step test"
+    "guide:test": "npm --prefix experiences/first-step test",
+    "cover:build": "node scripts/build-cover.mjs",
+    "cover:test": "node --test tests/cover.test.mjs",
+    "cover:dev": "node scripts/serve-cover.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",

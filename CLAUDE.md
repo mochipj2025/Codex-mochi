@@ -1,5 +1,7 @@
 # Codexの教科書を引き継ぐ方へ
 
+2026-09-05の最新方針は、公開層を「育つ教科書」の表紙にすることです。最初に `docs/cover-spec-ja.md` を読んでください。ルートの `index.html` と `changelog.md` が表紙の正本です。鍵の統合・FAQラベルの配置には未確認事項が残っています。
+
 今回のコピペ中心の入口は `experiences/first-step` にあります。最初に以下を読んでください。
 
 - `experiences/first-step/docs/SPEC.md`：目的、画面、素材、実装状況、残課題。

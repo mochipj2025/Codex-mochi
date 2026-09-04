@@ -43,3 +43,7 @@ npm run guide:build
 ```
 
 [アイコンの見本](experiences/first-step/icons/preview.png)
+
+## 育つ教科書の表紙（2026-09-05）
+
+公開層の新仕様は [表紙の仕様と引き継ぎ](docs/cover-spec-ja.md)。ソースは `index.html`、更新履歴の正本は `changelog.md` です。`npm run cover:dev` / `cover:test` / `cover:build` で確認できます。鍵と既存サイトへの統合は同仕様書の未完了事項を確認してください。

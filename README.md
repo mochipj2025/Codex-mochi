@@ -2,6 +2,8 @@
 
 もちもちのCodex勉強会で使う教材サイトです。Cloudflare Workers上で動作します。
 
+公開表紙の正本もこのリポジトリに置きます。GPT Sitesは今後の公開・確認には使いません。
+
 ## ローカル開発
 
 ```sh
@@ -47,3 +49,15 @@ npm run guide:build
 ## 育つ教科書の表紙（2026-09-05）
 
 公開層の新仕様は [表紙の仕様と引き継ぎ](docs/cover-spec-ja.md)。ソースは `index.html`、更新履歴の正本は `changelog.md` です。`npm run cover:dev` / `cover:test` / `cover:build` で確認できます。鍵と既存サイトへの統合は同仕様書の未完了事項を確認してください。
+
+### ローカルで表紙を見る
+
+```sh
+npm run cover:dev
+```
+
+Node.js 22.13以降があれば、表紙のローカル表示には追加パッケージのインストールは不要です。ブラウザで <http://127.0.0.1:4173> を開きます。終了はターミナルで `Ctrl+C` です。
+
+### リポジトリから表紙を公開する
+
+`.github/workflows/publish-cover.yml` が、mainへの表紙関連の変更を検知して `changelog.md` から静的ファイルを生成し、`cover-dist` だけをGitHub Pagesへ公開します。初回だけGitHubの **Settings → Pages → Source** で **GitHub Actions** を選びます。mainへ統合する前の確認は、このドラフトPRとローカル表示を使います。

@@ -28,7 +28,7 @@ brainへアクセスできない場合は作業場所に一時保存し、brain�
 
 Node.jsはリポジトリの既存条件に合わせ22.13以降。静的見本の起動・ビルド・テストには追加npmパッケージ不要。アイコン再作成時だけPythonとPillowが必要。
 
-ルートのdev / build / testは既存教材サイト用。入口はguide:dev / guide:build / guide:testを使う。dist、ローカル認証ファイル、Sites短期トークンはコミットしない。
+ルートのdev / build / testは既存教材サイト用。入口はguide:dev / guide:build / guide:testを使う。公開確認はローカルとGitHubのPRで行い、GPT Sitesへアップしない。distとローカル認証ファイルはコミットしない。
 
 本体の既存テストは、移植で本体を変更するときに実行する。静的見本だけの確認が本体の動作保証になるわけではない。
 

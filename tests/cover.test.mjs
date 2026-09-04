@@ -30,6 +30,8 @@ test('cover has requested sections in order and no inner lesson text',async()=>{
   assert.ok(!html.includes('CHANGELOG_ENTRIES'));assert.ok(!html.includes('{{MEMBER_ORIGIN}}'));
   assert.ok(!html.includes('<script'));assert.ok(!html.includes('<iframe'));assert.ok(!html.includes('<pre'));
   assert.ok(html.includes('第0章「はじめる前に」を新設予定'));
+  assert.match(html,/href="cover-assets\/favicon\.ico"/);
+  assert.match(html,/src="cover-assets\/mochisura\.png"/);
 });
 test('changing only changelog changes the generated cover',async()=>{
   const {fileURLToPath}=await import('node:url');
@@ -40,4 +42,12 @@ test('changing only changelog changes the generated cover',async()=>{
   await writeFile(path.join(fixture,'changelog.md'),'2026-09-05｜第2回｜確認用の追加｜参加者の質問');
   await buildCover(fixture,out);
   const html=await readFile(path.join(out,'index.html'),'utf8');assert.ok(html.includes('確認用の追加'));assert.ok(!html.includes('初回開催'));
+});
+test('repository publishing uploads only the generated cover',async()=>{
+  const workflow=await readFile(new URL('.github/workflows/publish-cover.yml',root),'utf8');
+  assert.match(workflow,/npm run cover:test/);
+  assert.match(workflow,/npm run cover:build/);
+  assert.match(workflow,/path: cover-dist/);
+  assert.match(workflow,/actions\/deploy-pages@v4/);
+  assert.doesNotMatch(workflow,/preview|chatgpt\.site|wrangler/);
 });

@@ -1,0 +1,10 @@
+import {mkdir,copyFile,cp,readFile} from 'node:fs/promises';
+import vm from 'node:vm';
+const source=await readFile(new URL('app.js',import.meta.url),'utf8');
+new vm.Script(source);
+const root=new URL('.',import.meta.url);
+await mkdir(new URL('dist/',root),{recursive:true});
+for(const name of ['index.html','style.css','app.js','site.webmanifest']) await copyFile(new URL(name,root),new URL('dist/'+name,root));
+await cp(new URL('images/',root),new URL('dist/images/',root),{recursive:true});
+await cp(new URL('icons/',root),new URL('dist/icons/',root),{recursive:true});
+console.log('Static build ready.');
